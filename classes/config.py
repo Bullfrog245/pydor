@@ -33,12 +33,13 @@ class CHARACTER:
 
 class LEVEL:
     '''Level surface configuration'''
-    WIDTH = 451
-    HEIGHT = 451
+    WIDTH = 450
+    HEIGHT = 450
     SURFACE_X = 350
     SURFACE_Y = 270  # MENU + DUNGEON
 
-    GRID = 15
+    GRID = 17
+    GUTTER = 3
     GRID_WIDTH = 30
     GRID_HEIGHT = 30
 

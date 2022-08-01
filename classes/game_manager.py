@@ -36,11 +36,6 @@ class GameManager():
         state.clock = pygame.time.Clock()
         state.ui = pygame_gui.UIManager((SCREEN.WIDTH, SCREEN.HEIGHT))
 
-        # 0 - Main menu
-        # 1 - Town
-        # 2 - Dungeon
-        self.mode = 0
-
         self.objects = {
             "menu": {
                 "object": Menu(),
@@ -92,7 +87,10 @@ class GameManager():
         self.debug_enabled = True
 
     def change_mode(self, mode):
-        self.mode = mode
+        # 0 - Main menu
+        # 1 - Town
+        # 2 - Dungeon
+        state.mode = mode
 
     def get_surface(self, surface):
         return self.surfaces[surface]
