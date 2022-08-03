@@ -157,8 +157,14 @@ class Level():
 
                         getattr(self, 'draw_' + callable)(surface, (grid_x, grid_y), args)
 
-            # pygame.draw.line(surface, LEVEL.WALL_COLOR, (LEVEL.WIDTH - 1, 0), (LEVEL.WIDTH - 1, LEVEL.HEIGHT - 1))
-            # pygame.draw.line(surface, LEVEL.WALL_COLOR, (0, LEVEL.HEIGHT - 1), (LEVEL.WIDTH - 1, LEVEL.HEIGHT - 1))
+            # Draw the right and bottom walls
+            x = x + 1
+            y = y + 1
+            grid_x = (x * LEVEL.GRID) - (x * LEVEL.GUTTER)
+            grid_y = (y * LEVEL.GRID) - (y * LEVEL.GUTTER)
+            pygame.draw.rect(surface, LEVEL.WALL_COLOR, pygame.Rect((1, 1), (grid_x + 1, grid_y + 1)), 1)
+            # pygame.draw.line(surface, LEVEL.WALL_COLOR, (grid_x + 1, 0), (grid_x + 1, grid_y + 1))
+            # pygame.draw.line(surface, LEVEL.WALL_COLOR, (0, grid_y + 1), (grid_x + 1, grid_y + 1))
 
             self.highlight_selected = False
 

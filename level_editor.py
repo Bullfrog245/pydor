@@ -22,7 +22,17 @@ background.fill(pygame.Color('#ffffff'))
 
 level_surface = pygame.Surface((LEVEL.WIDTH, LEVEL.HEIGHT)).convert()
 
-ui = pygame_gui.UIManager((800, 600))
+ui = pygame_gui.UIManager((800, 600), 'settings/theme.json')
+# ui.add_font_paths("OpenSans", "assets/fonts/OpenSans-Regular.ttf")
+# # ui.add_font_paths("cozette", str(ASSET_PATH / "fonts/cozette_bitmap.ttf"))
+
+# fonts = [
+#     {"name": "OpenSans", "point_size": 12, "style": "regular"},
+#     #{"name": "cozette", "point_size": 12, "style": "regular"},
+# ]
+# ui.preload_fonts(fonts)
+
+
 level = Level()
 level.set_level(1)
 
@@ -34,19 +44,22 @@ level_select = pygame_gui.elements.UIDropDownMenu(
     manager=ui
 )
 
-wall_up = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((550, 25), (60, 60)), text='Up', manager=ui)
-wall_right = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((550, 125), (60, 60)), text='Right', manager=ui)
-wall_down = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((550, 225), (60, 60)), text='Down', manager=ui)
-wall_left = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((550, 325), (60, 60)), text='Left', manager=ui)
+wall_label = pygame_gui.elements.UILabel(relative_rect=pygame.Rect((540, 20), (60, 30)), text='Walls', manager=ui)
+wall_up = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((540, 45), (60, 30)), text='Up', manager=ui)
+wall_right = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((570, 75), (60, 30)), text='Right', manager=ui)
+wall_down = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((540, 105), (60, 30)), text='Down', manager=ui)
+wall_left = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((510, 75), (60, 30)), text='Left', manager=ui)
 
-door_up = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((650, 25), (60, 60)), text='Up', manager=ui)
-door_right = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((650, 125), (60, 60)), text='Right', manager=ui)
-door_down = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((650, 225), (60, 60)), text='Down', manager=ui)
-door_left = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((650, 325), (60, 60)), text='Left', manager=ui)
+door_label = pygame_gui.elements.UILabel(relative_rect=pygame.Rect((680, 20), (60, 30)), text='Doors', manager=ui)
+door_up = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((680, 45), (60, 30)), text='Up', manager=ui)
+door_right = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((710, 75), (60, 30)), text='Right', manager=ui)
+door_down = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((680, 105), (60, 30)), text='Down', manager=ui)
+door_left = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((650, 75), (60, 30)), text='Left', manager=ui)
 
-add_rock = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((550, 425), (60, 60)), text='Rock', manager=ui)
+add_rock = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((510, 150), (60, 60)), text='Rock', manager=ui)
+add_water = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((570, 150), (60, 60)), text='Water', manager=ui)
 
-save = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((550, 500), (60, 60)), text='Save', manager=ui)
+save = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((720, 520), (60, 60)), text='Save', manager=ui)
 
 clock = pygame.time.Clock()
 is_running = True
